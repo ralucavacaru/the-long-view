@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div>	
+	<h1 class="timeline-title">
+		<b>The Fourth Industrial Revolution: The impact of AI in the 21st century</b>
+	</h1>
+
+	<div class="timeline timeline-left gray-blue">
+
+		{% for event in events %}
+		
+		<div class="timeline-block">
+			<div class="timeline-icon"></div>
+			<div class="timeline-content">
+				<img class="event-header-img" src="/static/img/{{ event.identifier }}.png">
+				<h2 class="event-title">{{ event.title }}</h2>
+				<div class="timeline-block-text-wrapper">
+					<p class="event-description">{{ event.description }}</p>
+					<div class="timeline-date">{{ event.year }}</div>
+
+					<div class="buttons">
+					    <a class="show" target="{{ event.id }}1">Full Story</a>
+					    <a class="show" target="{{ event.id }}2">Why</a>
+					    <a class="show" target="{{ event.id }}3">Impacts</a>
+					    {% if event.identifier != 'military-operation' and event.identifier != 'planned-econ' %}
+					    	<a class="show" target="{{ event.id }}4">Tech Article</a>
+					    {% endif %}
+					</div>
+				</div>
+
+				<div id="div{{ event.id }}1" class="target-div">
+					<a><i class="fa fa-times-circle fa-2x hide" aria-hidden="true"></i></a>
+					<div class="target-content">
+						{{ event.full_story|safe }}
+					</div>
+				</div>
+				<div id="div{{ event.id }}2" class="target-div">
+					<a><i class="fa fa-times-circle fa-2x hide" aria-hidden="true"></i></a>
+					<div class="target-content">
+						{{ event.why|safe }}
+					</div>
+				</div>
+				<div id="div{{ event.id }}3" class="target-div">
+					<a><i class="fa fa-times-circle fa-2x hide" aria-hidden="true"></i></a>
+					<div class="target-content">
+						<img class="event-graph" src="/static/img/{{ event.identifier }}-graph.png">
+						{{ event.impacts|safe }}
+					</div>
+				</div>
+				<div id="div{{ event.id }}3" class="target-div">
+					<a><i class="fa fa-times-circle fa-2x hide" aria-hidden="true"></i></a>
+					<div class="target-content">
+						<img class="event-graph" src="/static/img/{{ event.identifier }}-graph.png">
+						{{ event.impacts|safe }}
+					</div>
+				</div>
+				<div id="div{{ event.id }}4" class="target-div">
+					<a><i class="fa fa-times-circle fa-2x hide" aria-hidden="true"></i></a>
+					<div class="target-content">
+						{{ event.article|safe }}
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		{% endfor %}
+
+		<div class="timeline-block">
+			<div class="timeline-icon"></div>
+			<div class="timeline-content">
+				<img class="event-header-img" src="/static/img/singularity.png">
+				<h2 class="event-title">Horizon: The Singularity</h2>
+				<div class="timeline-block-text-wrapper">
+					<!-- <p class="event-description">{{ event.description }}</p> -->
+					<div class="timeline-date">2060</div>
+					<div class="quote">“Before the prospect of an intelligence explosion, we humans are like small children playing with a bomb. Such is the mismatch between the power of our plaything and the immaturity of our conduct." - Nich Bostrom, Superintelligence</div>
+					<h2 class="centre">Our perception of intelligence</h2>
+					<img class="intro-img" src="/static/img/singularity-perceived.png">
+					<h2 class="centre">How exponential growth really works</h2>
+					<img class="intro-img" src="/static/img/singularity-real.png">
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

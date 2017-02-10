@@ -1,0 +1,75 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en" ng-app="TheLongView">
+<head>
+	<meta charset="utf-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script src="https://use.fontawesome.com/2c5f933e25.js"></script>
+	<script src="{% static 'index.js' %}"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'timeline.css' %}">
+
+	<title>Artificial Intelligence - The Long View</title>
+</head>
+
+<body>
+	<nav class="main-navbar">
+		<a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">
+			Home
+		</a>
+		<a href="{% url 'definitions' %}" class="{% if request.resolver_match.url_name == 'definitions' %}active{% endif %}">
+			Definitions
+		</a>
+		<a href="{% url 'history' %}" class="{% if request.resolver_match.url_name == 'history' %}active{% endif %}">
+			Our Approach
+		</a>
+		<a href="{% url 'timeline' %}" class="{% if 'timeline' in request.resolver_match.url_name %}active{% endif %}">
+			Timeline
+		</a>
+		<a href="{% url 'references' %}" class="{% if 'references' in request.resolver_match.url_name %}active{% endif %}">
+			References
+		</a>
+	</nav>
+	{% block content %}
+		<div class="centered-text-box">
+			<h1>The Fourth Industrial Revolution: The impact of Artifical Intelligence in the 21st century</h1>
+			<p class="first">There is little doubt that the development and growth in the application of artificial intelligence will be one of the main shaping factors for our lives in the 21st century. This website was created as part of our project attempting to predict how the development of AI will unfold in the future, and the impact it will have on us, humans.</p>
+			<p>We are a team of 6 UCL students. Passion about future technologies is what unites us, but each of us brings a different outlook from our respective disciplines - economics, management, marketing, engineering and computer science.</p>
+		</div>
+		<div class="centered-text-box">
+			<h1>Why should you care?</h1>
+			<p class="first">The coming age of AI and its sister technologies - blockchain, robotics, IoT, sensors, nanotech - has already been labeled “The Fourth Industrial Revolution”. Each of the previous three events had caused profound impact on people’s lives, but this coming one may well be the most significant of all.</p>
+			<img class="intro-img" src="/static/img/intro1.png">
+			<i><p>- Will you lose your job? </p>
+			<p>- Will AI be a solution to all our problems?</p>
+			<p>- Finally, will we be terminated by robots?</p></i>
+			<p>These and many other important questions should be asked in relation to impacts of AI development on our future lives. Here is what some of the brightest human minds have to say on this matter:</p>
+			<div class="quote">““The potential benefits of creating intelligence are huge… With the tools of this new technological revolution, we will be able to undo some of the damage done to the natural world by the last one - industrialisation. And surely we will aim to finally eradicate disease and poverty. Every aspect of our lives will be transformed. In short, success in creating AI, could be the biggest event in the history of our civilisation… But it could also be the last, unless we learn how to avoid the risks. Alongside the benefits, AI will also bring dangers, like powerful autonomous weapons, or new ways for the few to oppress the many. It will bring great disruption to our economy.” ” - Steven Hawking</div>
+			<div class="quote">“According to our estimates, about 47 percent of total US employment is at risk.” Carl Benedikt Frey and Michael A. Osborne, The Future of Employment study</div>
+			<div class="quote">“Hope we're not just the biological boot loader for digital superintelligence. Unfortunately, that is increasingly probable”. Elon Musk’s twitter </div>
+			<p>Evidently, there is little disagreement in the expert community over the fact that the development of AI will have a profound impact on the human civilisation, but the main question is - what direction will it take? This is the question we are attempting to tackle in this report. </p>
+		</div>
+		<div class="centered-text-box">
+			<h1>History and the current state of AI</h1>
+			<div class="first quote">"We tend to overestimate the effect of a technology in the short run and underestimate the effect in the long run.” - Amara’s law</div>
+			<p>The history of AI is characterized by repeating cycles of heightened interest and optimism, followed by times of disappointment and reduced funding of AI research. These periods became known as ‘AI Springs’ and ‘AI Winters’. Many believe that right now we are experiencing a new ‘AI Spring’, characterized by special focus on machine learning algorithms.</p>
+			<p>This is happening due to three main reasons:</p>
+			<ol>
+				<li>Increasing computing power (especially GPUs) enabled machine learning research and its application</li>
+				<li>Datasets necessary to train machine learning algorithms became available.</li>
+				<li>Finally, some algorithmic breakthroughs took place, but this is probably the least important factor of the three</li>
+			</ol>
+			<p>Currently, the latest AIs are on par with humans in image and speech recognition, and are quickly catching up in the field of natural language processing (Shanahan, 2015). The collection of images below illustrate the proficiency of an AI developed in 2015 in image recognition.</p>
+			<img class="intro-img" src="/static/img/intro2.png">
+			<p>The past several years have been marked with several significant breakthroughs in applied AI. In Autumn 2016, Google Deepmind held victory at Go against Lee Se-dol - the second player in the world. Go requires high levels of strategy and intuition, and has more possible positions than there are atoms in the universe - it has previously been thought of as uncrackable for AI. On the other hand, Tesla announced plans to have cars with full self-driving capabilities on the road by the end of 2017, after which point the usage of these features will only be constrained by regulations (Muoio, 2017).</p>
+			<p>However, AIs still possess limited capabilities in reasoning and problem-solving. In the words of Todd Anglin, Chief Evangelist at Progress: “Our current AI state is that of a toddler - It can understand what it sees, what it hears, and then tell you what it is seeing” (Cardoza, 2016). Most importantly, current AI is incapable of real-world reasoning - responding to unexpected situations and problems, which is the key to achieving AGI.</p>
+		</div>
+	{% endblock content %}
+	
+</body>
+</html>
